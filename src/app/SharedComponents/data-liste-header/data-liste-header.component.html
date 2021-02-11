@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px"  *ngIf="items">
+    <div fxFlex>
+        <mat-toolbar color="primary" class="Edges">
+            {{items.title|translate}}
+        </mat-toolbar>
+        <div *ngFor="let item of items.data">
+
+            <mat-toolbar>
+                {{items.title|translate}}
+            </mat-toolbar>
+            <mat-divider style="backgroundColor: rgba(238, 236, 236, 0.137)">
+            </mat-divider>
+        </div>
+    </div>
+</div>

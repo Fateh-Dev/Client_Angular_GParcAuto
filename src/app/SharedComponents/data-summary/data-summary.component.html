@@ -1,0 +1,37 @@
+<div
+  fxLayout="column"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutWrap
+  fxLayoutAlign="space-between center"
+  fxLayoutGap="10px"
+  style="padding: 10px 3px"
+>
+  <div
+    fxFlex
+    fxFlexFill *ngFor="let item of itemsGros"
+  >
+    <div fxLayout="row" fxLayoutAlign="space-around center">
+      <mat-card
+        [ngClass]="
+          ('dir' | translate) === 'rtl' ? 'rightEdgeStyle' : 'leftEdgeStyle'
+        "
+        fxFlex="80"
+      >
+        <mat-card-header>
+          <mat-card-title style="font-size: large">{{item.title | translate}}</mat-card-title>
+          <mat-card-subtitle>subtitle</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+      <mat-card
+        [ngClass]="('dir' | translate) === 'rtl' ? 'rightEdge' : 'leftEdge'"
+        fxFlex="20"
+        fxFlexAlign="stretch"
+      >
+        <mat-card-content>
+          <h1>{{item.icon | translate}}</h1>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

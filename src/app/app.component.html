@@ -1,0 +1,89 @@
+<mat-drawer-container class="drawer-container" [hasBackdrop]="true" [dir]='direction'>
+    <mat-drawer #drawer class="sidenav" mode="over">
+        <div class="example-card " fxLayout="column" fxLayoutAlign="space-around center">
+            <mat-card style="background: none;"><img mat-card-avatar class="mat-card-avatar-big"></mat-card>
+            <h3 fxFlex style="color: white;">{{'user'|translate}}</h3>
+        </div>
+        <mat-divider>
+        </mat-divider>
+        <mat-selection-list [multiple]="false">
+            <mat-list-option routerLink="/home">
+                <div>{{'home' | translate}}</div>
+                <mat-icon mat-list-icon>home</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/enums">
+                <div>{{'enumeration' | translate}}</div>
+                <mat-icon mat-list-icon>settings</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/parametre">
+                <div>{{'parametre' | translate}}</div>
+                <mat-icon mat-list-icon>settings</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/about">
+                <div>{{'about' | translate}}</div>
+                <mat-icon mat-list-icon>info</mat-icon>
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+    <div id="rootContent">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                    (click)="drawer.toggle()" (click)="openDrawer()">
+                    <mat-icon>{{
+                        panelOpenState ? "menu" : "menu"
+                        }}</mat-icon>
+                </button>
+                <span style="padding-left:20px;">{{'titreProject' | translate}}</span>
+                <span class="example-spacer"></span>
+
+                <span class="example-spacer"></span>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                    [matMenuTriggerFor]="menu">
+                    <mat-icon>language </mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                    <mat-icon>settings </mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" [matMenuTriggerFor]="notification"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon matBadge="2" matBadgeSize="small" matBadgeColor="warn">notifications_active
+                    </mat-icon>
+                </button>
+                <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+                    [matMenuTriggerFor]="profil">
+                    <mat-icon>account_circle</mat-icon>
+                </button> -->
+                <span class="spacing"></span>
+                <div fxFlexAlign="end">
+                    <img [matMenuTriggerFor]="profil" mat-card-avatar
+                        class=" mat-card-avatar-small">
+                </div>
+
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="changeDirection('ltr','fr')">Français</button>
+                    <button mat-menu-item (click)="changeDirection('ltr','en')">English</button>
+                    <button mat-menu-item (click)="changeDirection('rtl','ar')">العربية</button>
+                </mat-menu>
+                <mat-menu #notification="matMenu">
+                    <div class="notificationDiv">fjlskjlks</div>
+                </mat-menu>
+                <mat-menu #profil="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>assignment_ind</mat-icon>{{'profile'|translate}}
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>lock</mat-icon>{{'lock'|translate}}
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>power_settings_new</mat-icon>{{'disconnect'|translate}}
+                    </button>
+                </mat-menu>
+
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</mat-drawer-container>
