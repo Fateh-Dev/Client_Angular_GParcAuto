@@ -1,5 +1,5 @@
 <div
-  fxLayout="column"
+  fxLayout="row"
   fxLayout.sm="column"
   fxLayout.xs="column"
   fxLayoutWrap
@@ -9,7 +9,7 @@
 >
   <div
     fxFlex
-    fxFlexFill *ngFor="let item of itemsGros"
+    fxFlexFill *ngFor="let item of items"
   >
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <mat-card
@@ -29,7 +29,7 @@
         fxFlexAlign="stretch"
       >
         <mat-card-content>
-          <h1>{{item.icon | translate}}</h1>
+          <h1>{{item.data}}</h1>
         </mat-card-content>
       </mat-card>
     </div>

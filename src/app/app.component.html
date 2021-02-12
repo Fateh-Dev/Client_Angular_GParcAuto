@@ -1,5 +1,5 @@
-<mat-drawer-container class="drawer-container" [hasBackdrop]="true" [dir]='direction'>
-    <mat-drawer #drawer class="sidenav" mode="over">
+<mat-drawer-container class="drawer-container" [hasBackdrop]="false" [dir]='direction' >
+    <mat-drawer #drawer class="sidenav" mode="side"  >
         <div class="example-card " fxLayout="column" fxLayoutAlign="space-around center">
             <mat-card style="background: none;"><img mat-card-avatar class="mat-card-avatar-big"></mat-card>
             <h3 fxFlex style="color: white;">{{'user'|translate}}</h3>
@@ -11,13 +11,29 @@
                 <div>{{'home' | translate}}</div>
                 <mat-icon mat-list-icon>home</mat-icon>
             </mat-list-option>
-            <mat-list-option routerLink="/enums">
-                <div>{{'enumeration' | translate}}</div>
-                <mat-icon mat-list-icon>settings</mat-icon>
+            <mat-list-option routerLink="/vehicule">
+                <div>{{'vehicule' | translate}}</div>
+                <mat-icon mat-list-icon>directions_bus</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/mission">
+                <div>{{'mission' | translate}}</div>
+                <mat-icon mat-list-icon>work</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/driver">
+                <div>{{'driver' | translate}}</div>
+                <mat-icon mat-list-icon>face</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/carburant">
+                <div>{{'carburant' | translate}}</div>
+                <mat-icon mat-list-icon>local_gas_station</mat-icon>
+            </mat-list-option>
+            <mat-list-option routerLink="/maintenance">
+                <div>{{'maintenance' | translate}}</div>
+                <mat-icon mat-list-icon>home_repair_service</mat-icon>
             </mat-list-option>
             <mat-list-option routerLink="/parametre">
                 <div>{{'parametre' | translate}}</div>
-                <mat-icon mat-list-icon>settings</mat-icon>
+                <mat-icon mat-list-icon>settings_seggest</mat-icon>
             </mat-list-option>
             <mat-list-option routerLink="/about">
                 <div>{{'about' | translate}}</div>
@@ -26,12 +42,12 @@
         </mat-selection-list>
     </mat-drawer>
     <div id="rootContent">
-        <mat-toolbar color="primary">
+        <mat-toolbar color="primary" *ngIf="loggedIn">
             <mat-toolbar-row>
                 <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
                     (click)="drawer.toggle()" (click)="openDrawer()">
                     <mat-icon>{{
-                        panelOpenState ? "menu" : "menu"
+                        panelOpenState ? "menu" : "keyboard_arrow_left"
                         }}</mat-icon>
                 </button>
                 <span style="padding-left:20px;">{{'titreProject' | translate}}</span>
@@ -69,14 +85,17 @@
                     <div class="notificationDiv">fjlskjlks</div>
                 </mat-menu>
                 <mat-menu #profil="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item routerLink="/profile">
                         <mat-icon>assignment_ind</mat-icon>{{'profile'|translate}}
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item routerLink="/lock">
                         <mat-icon>lock</mat-icon>{{'lock'|translate}}
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item routerLink="/login">
                         <mat-icon>power_settings_new</mat-icon>{{'disconnect'|translate}}
+                    </button>
+                    <button mat-menu-item routerLink="/loginjkjk">
+                        <mat-icon>error</mat-icon>404 Not Found
                     </button>
                 </mat-menu>
 

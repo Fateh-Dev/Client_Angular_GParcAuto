@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  loggedIn=true;
   title = 'Project Title';
   public direction: any;
   showNavigation = true;

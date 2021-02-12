@@ -10,7 +10,7 @@ import { summaryHeaderItem } from '../data-summary-header/data-summary-header.co
 })
 export class DataSummaryComponent implements OnInit {
   @Input()
-  itemsGros: summaryHeaderItem[] = [];
+  items: summaryHeaderItem[] = [];
   constructor() {}
   ngOnInit(): void {
    
